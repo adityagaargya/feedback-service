@@ -26,7 +26,7 @@ passport.use(new GoogleStratergy({
     User.findOne({googleId: profile.id })
     .then((existingUser)=> {
         if (existingUser) {
-            // User is already signed up
+            // User is already signed u
             done(null, existingUser);
         } else {
             new User({googleId : profile.id, firstName : profile.name.givenName, secondName : profile.name.familyName }).save()
