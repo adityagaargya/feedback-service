@@ -10,12 +10,12 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect('/api/current_user');
+    res.redirect('/surveys');
   });
 
   app.get('/api/logout', (req,res) => {
       req.logout();
-      res.send("Byeee")
+      res.redirect('/');
   })
 
   app.get('/api/current_user', (req,res)=> {
